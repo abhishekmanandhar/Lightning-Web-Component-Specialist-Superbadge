@@ -5,7 +5,7 @@
         <lightning-card title="Find a Boat">
             
           <!-- New Boat button goes here -->
-          <lightning-button label="New Boat" title="Non-primary action" onclick={createNewBoat} class="slds-m-left_x-small"></lightning-button>
+          <lightning-button label="New Boat" title="Create New Boat" onclick={createNewBoat} class="slds-m-left_x-small"></lightning-button>
 
           <p class="slds-var-p-horizontal_small">
             <!-- boatSearchForm component goes here -->
@@ -22,6 +22,7 @@
         </template>
 
         <!-- boatSearchResults goes here -->
+        <c-boat-search-results></c-boat-search-results>
 
         <!-- onloading={handleLoading} ondoneloading={handleDoneLoading} -->
 

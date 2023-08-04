@@ -1,8 +1,11 @@
-import getBoats from '@salesforce/apex/BoatDataService.getBoats';
 import { LightningElement, api, track, wire } from 'lwc';
+import getBoats from '@salesforce/apex/BoatDataService.getBoats';
 
 export default class BoatSearchResults extends LightningElement {
     boatTypeId = '';
+
+    @track
+    boats
 
     @api 
     searchBoats(boatTypeId){
@@ -12,14 +15,12 @@ export default class BoatSearchResults extends LightningElement {
     @wire(getBoats, {boatTypeId: '$boatTypeId'})
     wiredBoats({data, error}){
         if(data){
-            this.notifyLoading(false);
+            console.log(data);
             this.boats = data;
         } else if(error){
-            this.notifyLoading(false);
+            console.log(error);
             this.error = error;
             this.boats = undefined;
         }
     }
-
-    
 }
